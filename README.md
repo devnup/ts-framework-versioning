@@ -8,7 +8,9 @@ A minimalistic framework for typescript based applications, with async/await and
 
 This plugin extends the Server for handling safe versioning using Headers.
 
-## Getting Started
+## Getting Started (TS-Framework)
+
+Add the module as a Serverm middleware overriding the router registration method.
 
 ```typescript
 import Server from 'ts-framework';
@@ -37,6 +39,27 @@ class MyServer extends Server {
   }
 }
 ```
+<br />
+
+## Getting Started (Express)
+
+This module is also compatible with an Express server.
+
+```typescript
+const express = require('express');
+const { Versioning } = require('ts-framework-versioning');
+
+const app = express();
+
+app.use(Versioning.middleware({
+  current: '1.2.3', // Required field
+  minimum: '1.2.0', // Optional field, will ensure minimum version for all requests
+  recommended: '1.2.1', // Optional field, will set a recommended version header
+}));
+
+app.listen(3000, () => console.log('Server listening on port: 3000'));
+```
+<br />
 
 ## Documentation
 
@@ -45,7 +68,7 @@ class MyServer extends Server {
 - **options.recommended:** The recommended version, should be a valid [Semver](https://semver.org) tag.
 - **options.minimum:** The minimum version, should be a valid [Semver](https://semver.org) tag.
 - **options.header:** The header for specifing the current API version, defaults to ```X-API-Version```.
-- **options.requestedHeader:** The header for specifing the recommended API version, defaults to ```X-API-Requested-Version```.
+- **options.requestedHeader:** The header for specifing the requested API version, defaults to ```X-API-Requested-Version```.
 - **options.recommendedHeader:** The header for specifing the recommended API version, defaults to ```X-API-Recommended-Version```.
 
 ## License
