@@ -1,0 +1,36 @@
+{
+  "name": "ts-framework-versioning",
+  "version": "1.0.0",
+  "description": "A minimalistic web framework for TS",
+  "author": "Luis Brito <luis@devnup.com>",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "typings": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "./node_modules/.bin/tsc",
+    "clean": "./node_modules/.bin/rimraf ./dist/",
+    "test": "./node_modules/.bin/jest --config jest.json",
+    "precommit": "npm run clean -s && npm run build -s && npm test"
+  },
+  "dependencies": {
+    "@types/semver": "^5.4.0",
+    "rimraf": "^2.6.2",
+    "semver": "^5.4.1",
+    "ts-framework": "git+https://gitlab.devnup.com/npm/ts-framework.git#dev",
+    "typescript": "^2.5.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^21.1.2",
+    "@types/supertest": "^2.0.3",
+    "husky": "^0.14.3",
+    "jest": "^21.2.1",
+    "nodemon": "^1.12.1",
+    "supertest": "^3.0.0",
+    "ts-jest": "^21.1.2",
+    "ts-lint": "^4.5.1",
+    "ts-node": "^3.3.0"
+  }
+}
