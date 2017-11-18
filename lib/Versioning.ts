@@ -6,6 +6,7 @@ export interface VersioningOptions {
   minimum?: string;
   recommended?: string;
   header?: string;
+  requestedHeader?: string;
   recommendedHeader?: string;
 }
 
@@ -23,7 +24,7 @@ export default class Versioning {
       res.set(options.header || 'X-API-Version', options.current);
 
       // Get requested version from header
-      const requestedVersion = req.header('X-API-Requested-Version');
+      const requestedVersion = req.header(options.requestedHeader || 'X-API-Requested-Version');
 
       if (requestedVersion && !semver.valid(requestedVersion)) {
         throw new HttpError(`Invalid requested version: ${requestedVersion}`, HttpCode.Client.BAD_REQUEST, { current: options.current });
