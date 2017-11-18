@@ -46,6 +46,18 @@ describe('lib.Server', () => {
       .expect(400);
   });
 
+  it('should not accept a version higher than current', async () => {
+    // Initialize a simple server
+    const server = new TestServer();
+
+    // Perform a simple request to get a 200 response
+    await request(server.app).get('/')
+      .set('X-API-Requested-Version', '2.0.0')
+      .expect('Content-Type', /json/)
+      .expect('X-API-Version', '1.2.3')
+      .expect(400);
+  });
+
   it('should accept the current version', async () => {
     // Initialize a simple server
     const server = new TestServer();

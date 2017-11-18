@@ -27,7 +27,10 @@ export default class Versioning {
       const requestedVersion = req.header(options.requestedHeader || 'X-API-Requested-Version');
 
       if (requestedVersion && !semver.valid(requestedVersion)) {
+        // Could not recognize the semver requested version
         throw new HttpError(`Invalid requested version: ${requestedVersion}`, HttpCode.Client.BAD_REQUEST, { current: options.current });
+      } else if (requestedVersion && semver.lt(options.current, requestedVersion)) {
+        throw new HttpError(`Unsupported version: ${requestedVersion}`, HttpCode.Client.BAD_REQUEST, { current: options.current });
       } else if (requestedVersion && !semver.satisfies(requestedVersion, options.current)) {
         // Check if the version satisfies the current one
         if (options.minimum && !semver.gte(requestedVersion, options.minimum)) {
