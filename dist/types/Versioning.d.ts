@@ -4,6 +4,7 @@ export interface VersioningOptions {
     minimum?: string;
     recommended?: string;
     header?: string;
+    requestedHeader?: string;
     recommendedHeader?: string;
 }
 export default class Versioning {

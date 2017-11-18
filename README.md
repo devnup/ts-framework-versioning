@@ -32,7 +32,7 @@ class MyServer extends Server {
       recommended: '1.2.1', // Optional field, will set a recommended version header
     }));
 
-    // Continue with the router register
+    // Continue with the router initialization
     return super.register();
   }
 }
