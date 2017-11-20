@@ -9,6 +9,10 @@
   "files": [
     "dist"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.devnup.com/npm/ts-framework-versioning.git"
+  },
   "scripts": {
     "build": "npm run -s clean && ./node_modules/.bin/tsc",
     "clean": "./node_modules/.bin/rimraf ./dist/",
