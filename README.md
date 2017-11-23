@@ -8,9 +8,17 @@ A minimalistic framework for typescript based applications, with async/await and
 
 This plugin extends the Server for handling safe versioning using Headers.
 
+```bash
+# Install using yarn
+yarn add git:https://gitlab.devnup.com/npm/ts-framework-versioning.git#master
+
+# Install using NPM
+npm install --save git:https://gitlab.devnup.com/npm/ts-framework-versioning.git#master
+```
+
 ## Getting Started (TS-Framework)
 
-Add the module as a Serverm middleware overriding the router registration method.
+Add the module as a Server middleware overriding the router registration method.
 
 ```typescript
 import Server from 'ts-framework';
