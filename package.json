@@ -17,7 +17,8 @@
     "build": "npm run -s clean && ./node_modules/.bin/tsc",
     "clean": "./node_modules/.bin/rimraf ./dist/",
     "test": "./node_modules/.bin/jest --config jest.json",
-    "precommit": "npm test"
+    "precommit": "npm test",
+    "coveralls": "((cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js) || true)"
   },
   "dependencies": {
     "@types/semver": "^5.4.0",
@@ -29,6 +30,7 @@
   "devDependencies": {
     "@types/jest": "^21.1.2",
     "@types/supertest": "^2.0.3",
+    "coveralls": "^3.0.0",
     "husky": "^0.14.3",
     "jest": "^21.2.1",
     "nodemon": "^1.12.1",

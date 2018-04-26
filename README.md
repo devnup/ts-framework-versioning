@@ -1,8 +1,8 @@
 ts-framework-versioning
 ======================
 
-[![pipeline status](https://gitlab.devnup.com/npm/ts-framework-versioning/badges/master/pipeline.svg)](https://gitlab.devnup.com/npm/ts-framework-versioning/commits/master)
-[![coverage report](https://gitlab.devnup.com/npm/ts-framework-versioning/badges/master/coverage.svg)](https://gitlab.devnup.com/npm/ts-framework-versioning/commits/master)
+
+[![Coverage Status](https://coveralls.io/repos/github/devnup/ts-framework-versioning/badge.svg?branch=master)](https://coveralls.io/github/devnup/ts-framework-versioning?branch=master)
 
 A minimalistic framework for typescript based applications, with async/await and decorators support.
 
